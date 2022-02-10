@@ -52,6 +52,14 @@ def main():
         )
         processes.append(module_common_process)
         print(''.join(_wait_for_started(module_common_process)))
+
+        print('Starting nav bar...')
+        host_process = subprocess.Popen(
+            ['yarn', '--cwd', './nav-bar', 'start'], 
+            stdout=subprocess.PIPE
+        )
+        processes.append(host_process)
+        print(''.join(_wait_for_started(host_process)))
         
         terminal_menu = TerminalMenu(options, multi_select=True, show_multi_select_hint=True)
         menu_entry_indices = terminal_menu.show()

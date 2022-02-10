@@ -1,3 +1,5 @@
-export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+import { NavBar } from './bar/nav-bar';
+
+export default function Root() {
+  return <NavBar/>;
 }

@@ -1,0 +1,22 @@
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  // border-bottom: solid 1px lighten(black, 50);
+  box-shadow: 0 0 1px black; 
+
+  .title {
+    margin-bottom: 0;
+    margin-left: 6px;
+  }
+
+  .material-icons {
+    cursor: pointer;
+  }
+}
