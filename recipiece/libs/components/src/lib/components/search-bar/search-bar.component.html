@@ -1,0 +1,11 @@
+<div class="search-bar-container">
+  <span class="material-icons search-icon">search</span>
+  <input
+    [ngModel]="searchTerm"
+    (ngModelChange)="onSearchTermChange($event)"
+    [disabled]="disabled"
+    class="search-bar"
+    type="text"
+    name="search-bar"
+  />
+</div>

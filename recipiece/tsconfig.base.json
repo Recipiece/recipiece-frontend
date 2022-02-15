@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "strictNullChecks": false,
+    "noPropertyAccessFromIndexSignature": false,
     "baseUrl": ".",
     "paths": {
       "@recipiece/api": ["libs/api/src/index.ts"],

@@ -1,0 +1,15 @@
+<div class="form-container">
+  <div class="form">
+    <h2>Verify Email</h2>
+    <p>You should have recieved a token in your email. Enter it below and press the verify button to continue.</p>
+    <fieldset>
+      <label>
+        Token
+        <input [(ngModel)]="token" name="rcp-username" type="text" />
+      </label>
+    </fieldset>
+    <div class="button-container">
+      <button (click)="verifyAccount()" class="button">Verify Token</button>
+    </div>
+  </div>
+</div>

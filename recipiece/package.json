@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular-architects/module-federation": "^13.0.1",
-    "@angular/animations": "~13.2.0",
+    "@angular/animations": "^13.2.2",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
     "@angular/core": "~13.2.0",
@@ -19,7 +19,10 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@ngneat/hot-toast": "4",
+    "@ngneat/overview": "3.0.0",
     "rxjs": "~7.4.0",
+    "spinners-angular": "^0.0.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },

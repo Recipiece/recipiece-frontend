@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="form-container">
+  <div class="form">
+    <h2>Login</h2>
+    <fieldset>
+      <label>
+        Username or Email
+        <input [(ngModel)]="username" name="rcp-username" type="text" />
+      </label>
+      <label>
+        Password
+        <input [(ngModel)]="password" type="password" name="rcp-password" />
+      </label>
+      <label class="label-inline">
+        <input [(ngModel)]="remember" type="checkbox" name="rcp-remember" />
+        Remember
+      </label>
+    </fieldset>
+    <div class="button-container">
+      <button [disabled]="!valid" class="button" type="button" (click)="loginUser()">Log In</button>
+      <button routerLink="../create-account" class="button button-outline" type="button">Create Account</button>
+    </div>
+    <a routerLink="../forgot-password" class="button button-clear forgot-password-button">Forgot Password</a>
+    <recipiece-loading-spinner [loading]="loading"></recipiece-loading-spinner>
+  </div>
+</div>

@@ -1,3 +1,8 @@
-<recipiece-nav-bar></recipiece-nav-bar>
-<recipiece-nav-drawer></recipiece-nav-drawer>
-<router-outlet></router-outlet>
+<div class="app-container">
+  <div class="drawer-container" *ngIf="showDrawer">
+    <recipiece-nav-drawer (logoutRequested)="logout()"></recipiece-nav-drawer>
+  </div>
+  <div class="router-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

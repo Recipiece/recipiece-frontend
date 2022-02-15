@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+
+  .form {
+    width: 400px;
+  }
+}
+
+.button-container {
+  display: flex;
+
+  > * {
+    flex-basis: 50%;
+    flex-grow: 1;
+    margin-right: 6px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

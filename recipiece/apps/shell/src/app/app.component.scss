@@ -1,0 +1,16 @@
+.app-container {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+
+  .drawer-container {
+    flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .router-container {
+    overflow-y: scroll;
+    flex-grow: 1;
+  }
+}

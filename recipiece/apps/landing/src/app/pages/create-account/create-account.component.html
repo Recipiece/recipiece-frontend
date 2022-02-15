@@ -1,1 +1,27 @@
-<p>create-account works!</p>
+<div class="form-container">
+  <div class="form">
+    <h2>Create Account</h2>
+    <fieldset>
+      <label>
+        Username
+        <input [(ngModel)]="username" name="rcp-username" type="text" />
+      </label>
+      <label>
+        Email
+        <input [(ngModel)]="email" name="rcp-email" type="text" />
+      </label>
+      <label>
+        Password
+        <input [(ngModel)]="password" type="password" name="rcp-password" />
+      </label>
+      <label>
+        Confirm Password
+        <input [(ngModel)]="confirmPassword" type="password" name="rcp-password-confirm" />
+      </label>
+    </fieldset>
+    <div class="button-container">
+      <button (click)="stageUser()" class="button" type="button">Create Account</button>
+    </div>
+    <a class="button button-clear go-to-login-button" routerLink="../login">I already have an account</a>
+  </div>
+</div>

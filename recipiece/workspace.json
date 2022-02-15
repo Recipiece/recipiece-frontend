@@ -1,14 +1,14 @@
 {
   "version": 2,
   "projects": {
+    "account": "apps/account",
     "api": "libs/api",
     "components": "libs/components",
     "dashboard": "apps/dashboard",
-    "dashboard-e2e": "apps/dashboard-e2e",
     "landing": "apps/landing",
-    "landing-e2e": "apps/landing-e2e",
+    "recipes": "apps/recipes",
     "shell": "apps/shell",
-    "shell-e2e": "apps/shell-e2e",
+    "shopping": "apps/shopping",
     "theme": "libs/theme"
   }
 }

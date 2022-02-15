@@ -59,11 +59,15 @@ devServer: {
 in your module's webpack configuration (not the MF configuration). This allows the remote entry module to be loaded by the shell.
 
 ## Common Nx Commands
+* Serve everything `nx run shell:serve-mfe`
+* Serve a single project `nx run <projectName>:serve`
 * Generate a new library: `nx g @nrwl/angular:lib <libraryName>`
-* Generate a new application `nx g @nrwl/angular:app <appName>`
+* Generate a new application `nx g @nrwl/angular:app <appName> --mfe --mfeType=remote --port=<port> --host=shell`
 * Generate a new module in an application `nx g @nrwl/angular:module <path> --project=<projectName>`
 * Generate a new component in an application `nx g @nrwl/angular:component <path> --project=<projectName>`
 * Generate a new service in an application `nx g @nrwl/angular:service <path> --project=<projectName>`
 * Remove a generated application/library `nx g rm <projectName>`
 
 When generating a module, you'll probably want to add the `--routing` flag.
+
+See also: [NX MF Setup](https://nx.dev/guides/setup-mfe-with-angular)

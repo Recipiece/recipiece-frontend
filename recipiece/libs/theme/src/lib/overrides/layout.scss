@@ -1,0 +1,6 @@
+@use '../colors.scss';
+
+body {
+  background-color: colors.$app-background;
+  color: colors.$font-dark;
+}

@@ -1,0 +1,51 @@
+@use 'libs/theme/src/lib/colors';
+
+.nav-drawer-container {
+  background-color: colors.$app-primary;
+  height: 100%;
+  color: colors.$font-light;
+  display: flex;
+  flex-direction: column;
+
+  .cookbooks-container {
+    flex-grow: 1;
+
+    .cookbooks-list {
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+
+  .title {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  .pad {
+    margin-top: auto;
+  }
+
+  .drawer-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px;
+
+    &:hover,
+    &.selected {
+      background-color: lighten(colors.$app-primary, 5%);
+    }
+
+    .action-icon {
+      font-size: 32px;
+      margin-right: 6px;
+    }
+  }
+}

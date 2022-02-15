@@ -1,0 +1,40 @@
+@use '../colors.scss';
+
+.button {
+  &:not(.button-outline, .button-clear) {
+    border-color: colors.$app-primary !important;
+    background-color: colors.$app-primary !important;
+
+    &:not(:disabled) {
+      &:focus,
+      &:hover {
+        background-color: colors.$app-secondary !important;
+        border-color: colors.$app-secondary !important;
+      }
+    }
+  }
+
+  &.button-outline {
+    border-color: colors.$app-primary !important;
+    color: colors.$app-primary !important;
+
+    &:not(:disabled) {
+      &:focus,
+      &:hover {
+        border-color: colors.$app-secondary !important;
+        color: colors.$app-secondary !important;
+      }
+    }
+  }
+
+  &.button-clear {
+    color: colors.$app-primary !important;
+
+    &:not(:disabled) {
+      &:focus,
+      &:hover {
+        color: colors.$app-secondary !important;
+      }
+    }
+  }
+}

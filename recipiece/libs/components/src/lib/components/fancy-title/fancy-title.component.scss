@@ -1,0 +1,14 @@
+@use 'libs/theme/src/lib/colors';
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.shadow-div {
+  font-family: 'Marck Script', cursive;
+
+  &.primary {
+    color: colors.$app-primary;
+  }
+
+  &.secondary {
+    color: colors.$app-secondary;
+  }
+}

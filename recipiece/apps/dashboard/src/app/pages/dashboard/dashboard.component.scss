@@ -1,0 +1,23 @@
+@use 'libs/theme/src/lib/colors';
+
+.dashboard-container {
+  padding: 12px;
+  padding-top: 0;
+
+  .search-bar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    recipiece-search-bar {
+      flex-grow: 1;
+    }
+
+    .advanced-search-icon {
+      color: colors.$font-dark;
+      cursor: pointer;
+      font-size: 30px;
+      padding: 4px;
+    }
+  }
+}

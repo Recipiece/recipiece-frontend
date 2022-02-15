@@ -1,0 +1,5 @@
+@use '../colors';
+
+input:focus {
+  border-color: colors.$app-primary !important;
+}

@@ -15,7 +15,11 @@
         "tsConfig": "apps/shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
-        "styles": ["apps/shell/src/styles.scss"],
+        "styles": [
+          "apps/shell/src/styles.scss",
+          "libs/theme/src/lib/overrides/overrides.scss",
+          "libs/theme/src/lib/structure/structure.scss"
+        ],
         "scripts": [],
         "customWebpackConfig": {
           "path": "apps/shell/webpack.config.js"
@@ -98,7 +102,15 @@
     "serve-mfe": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": ["nx serve dashboard", "nx serve landing", "nx serve shell"]
+        "commands": [
+          "nx serve recipes",
+          "nx serve account",
+          "nx serve cookbooks",
+          "nx serve shopping",
+          "nx serve dashboard",
+          "nx serve landing",
+          "nx serve shell"
+        ]
       }
     }
   },

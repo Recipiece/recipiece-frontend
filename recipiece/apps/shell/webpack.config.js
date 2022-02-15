@@ -33,7 +33,8 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+      'Access-Control-Allow-Headers':
+        'X-Requested-With, content-type, Authorization',
     },
   },
   output: {
@@ -56,6 +57,9 @@ module.exports = {
       remotes: {
         landing: 'http://localhost:4201/remoteEntry.js',
         dashboard: 'http://localhost:4202/remoteEntry.js',
+        shopping: 'http://localhost:4203/remoteEntry.js',
+        account: 'http://localhost:4205/remoteEntry.js',
+        recipes: 'http://localhost:4206/remoteEntry.js',
       },
       shared: share({
         '@angular/core': {

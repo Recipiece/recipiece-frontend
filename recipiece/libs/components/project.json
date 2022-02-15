@@ -2,7 +2,8 @@
   "projectType": "library",
   "root": "libs/components",
   "sourceRoot": "libs/components/src",
-  "architect": {
+  "prefix": "recipiece",
+  "targets": {
     "build": {
       "options": {
         "stylePreprocessorOptions": {
@@ -10,10 +11,7 @@
           "extractCss": true
         }
       }
-    }
-  },
-  "prefix": "recipiece",
-  "targets": {
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/components"],

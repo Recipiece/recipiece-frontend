@@ -1,0 +1,8 @@
+@use 'libs/theme/src/lib/colors';
+
+.title {
+  text-align: center;
+  color: colors.$app-primary;
+  font-family: 'Marck Script', cursive;
+  margin-top: 12px;
+}
