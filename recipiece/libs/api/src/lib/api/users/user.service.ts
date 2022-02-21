@@ -13,7 +13,7 @@ interface LoggedInBundle {
 @Injectable()
 export class UserService extends ApiConnector<IUser> {
   constructor(session: SessionService, client: HttpClient) {
-    super(session, client, '/auth/users');
+    super(session, client, '/users');
   }
 
   public loginUser(username: string, password: string, remember: boolean): Observable<any> {

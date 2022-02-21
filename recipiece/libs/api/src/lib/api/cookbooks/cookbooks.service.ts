@@ -9,7 +9,7 @@ import { SessionService } from '../sessions';
 @Injectable()
 export class CookbooksService extends ApiConnector<ICookbook> {
   constructor(session: SessionService, client: HttpClient) {
-    super(session, client, '/recipes/cookbooks');
+    super(session, client, '/cookbooks');
   }
 
   public listForUser(

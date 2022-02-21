@@ -105,7 +105,6 @@
         "commands": [
           "nx serve recipes",
           "nx serve account",
-          "nx serve cookbooks",
           "nx serve shopping",
           "nx serve dashboard",
           "nx serve landing",

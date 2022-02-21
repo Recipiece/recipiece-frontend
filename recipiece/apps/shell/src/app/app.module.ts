@@ -37,11 +37,6 @@ import { NavDrawerComponent } from './components/nav-drawer/nav-drawer.component
             import('shopping/Module').then((m) => m.RemoteEntryModule),
         },
         {
-          path: 'cookbooks',
-          loadChildren: () =>
-            import('cookbooks/Module').then((m) => m.RemoteEntryModule),
-        },
-        {
           path: 'account',
           loadChildren: () =>
             import('account/Module').then((m) => m.RemoteEntryModule),

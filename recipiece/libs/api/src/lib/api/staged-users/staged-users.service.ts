@@ -11,7 +11,7 @@ export class StagedUsersService extends ApiConnector<any> {
     session: SessionService,
     client: HttpClient,
   ) { 
-    super(session, client, '/auth/staged-users');
+    super(session, client, '/staged-users');
   }
 
   public stageUser(username: string, email: string, password: string): Observable<any> {

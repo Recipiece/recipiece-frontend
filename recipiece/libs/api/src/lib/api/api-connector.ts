@@ -52,6 +52,6 @@ export abstract class ApiConnector<T extends IBaseModel> {
   }
 
   protected getFullUrl(endpoint: string): string {
-    return `http://localhost:8800${this.baseUrl}${endpoint}`;
+    return `http://localhost:8800/api${this.baseUrl}${endpoint}`;
   }
 }
