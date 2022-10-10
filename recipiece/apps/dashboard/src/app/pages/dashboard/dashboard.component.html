@@ -6,4 +6,20 @@
     <recipiece-search-bar></recipiece-search-bar>
     <span class="material-icons advanced-search-icon">settings</span>
   </div>
+  <div class="recipes-grid-container">
+    <ng-container *ngIf="recipes.length === 0">
+      You have no recipes, but you can add some by clicking the <i>Create a Recipe</i> button on the left!
+    </ng-container>
+    <div class="recipes-grid">
+      <ng-container *ngFor="let recipe of recipes">
+        <div class="single-card-wrapper">
+          <recipiece-recipe-card
+            (viewed)="recipeViewed($event)"
+            (edited)="recipeEdited($event)"
+            [recipe]="recipe"
+          ></recipiece-recipe-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
 </div>

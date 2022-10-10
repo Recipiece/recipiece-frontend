@@ -1,0 +1,20 @@
+@use 'libs/theme/src/lib/colors';
+
+.titles {
+  display: flex;
+  flex-direction: row;
+
+  .tab-title {
+    flex-grow: 1;
+    padding: 4px;
+    cursor: pointer;
+
+    h4 {
+      margin: 0;
+    }
+
+    &.selected {
+      border-bottom: solid 2px colors.$app-secondary;
+    }
+  }
+}

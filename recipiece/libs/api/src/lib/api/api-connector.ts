@@ -1,16 +1,18 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 import { IBaseModel } from '../model/base-model';
+import { IPagedResponse } from '../model/paged-result';
 import { SessionService } from './sessions';
 
 export abstract class ApiConnector<T extends IBaseModel> {
   constructor(
     protected sessionService: SessionService,
     protected client: HttpClient,
-    protected baseUrl: string
+    protected readonly baseUrl: string,
+    protected readonly port: number,
   ) {}
 
-  public getById(id: string): Observable<T> {
+  public get(id: string): Observable<T> {
     const url = this.getFullUrl(`/${id}`);
     return this.client.get<T>(url, { headers: this.getHeaders() });
   }
@@ -38,6 +40,19 @@ export abstract class ApiConnector<T extends IBaseModel> {
     }
   }
 
+  public list(query?: any): Observable<IPagedResponse<T>> {
+    const url = this.getFullUrl(`/list/${this.sessionService.userId}`);
+    const options: any = { headers: this.getHeaders() };
+    if (!!query) {
+      options.params = new HttpParams({ fromObject: query });
+    }
+    return this.client.get<IPagedResponse<T>>(url, options).pipe(
+      map((response) => {
+        return response as unknown as IPagedResponse<T>;
+      })
+    );
+  }
+
   protected getHeaders(useAuth: boolean = true): HttpHeaders {
     let headers = new HttpHeaders({
       'content-type': 'application/json',
@@ -52,6 +67,6 @@ export abstract class ApiConnector<T extends IBaseModel> {
   }
 
   protected getFullUrl(endpoint: string): string {
-    return `http://localhost:8800/api${this.baseUrl}${endpoint}`;
+    return `http://localhost:${this.port}/api${this.baseUrl}${endpoint}`;
   }
 }

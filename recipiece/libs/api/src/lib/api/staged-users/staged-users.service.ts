@@ -6,25 +6,30 @@ import { SessionService } from '../sessions';
 
 @Injectable()
 export class StagedUsersService extends ApiConnector<any> {
-
-  constructor(
-    session: SessionService,
-    client: HttpClient,
-  ) { 
-    super(session, client, '/staged-users');
+  constructor(session: SessionService, client: HttpClient) {
+    super(session, client, '/staged-users', 8801);
   }
 
-  public stageUser(username: string, email: string, password: string): Observable<any> {
+  public stageUser(email: string, password: string): Observable<void> {
     const url = this.getFullUrl('/stage');
-    return this.client.post(url, {
-      username, email, password,
-    }, {headers: this.getHeaders(false)});
+    return this.client.post<void>(
+      url,
+      {
+        email: email,
+        password: password,
+      },
+      { headers: this.getHeaders(false) }
+    );
   }
 
-  public confirmStagedUser(token: string): Observable<any> {
+  public confirmStagedUser(token: string): Observable<void> {
     const url = this.getFullUrl('/confirm');
-    return this.client.post(url, {
-      token,
-    }, {headers: this.getHeaders(false)});
+    return this.client.post<void>(
+      url,
+      {
+        token,
+      },
+      { headers: this.getHeaders(false) }
+    );
   }
 }

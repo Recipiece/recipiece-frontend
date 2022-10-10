@@ -1,5 +1,5 @@
 @use '../colors';
 
-input:focus {
+input:focus, textarea:focus {
   border-color: colors.$app-primary !important;
 }

@@ -1,1 +1,14 @@
-<p>recipe-view works!</p>
+<div class="recipe-view-container" *ngIf="!loading">
+  <recipiece-fancy-title>
+    <h3>{{ recipe.name }}</h3>
+  </recipiece-fancy-title>
+  <span>{{ recipe.description }}</span>
+  <div class="recipe-content-wrapper">
+    <div class="recipe-steps-wrapper">
+      <recipiece-recipe-steps-view [recipe]="recipe"></recipiece-recipe-steps-view>
+    </div>
+    <div class="recipe-ingredients-wrapper">
+      <recipiece-recipe-ingredients-view [recipe]="recipe"></recipiece-recipe-ingredients-view>
+    </div>
+  </div>
+</div>

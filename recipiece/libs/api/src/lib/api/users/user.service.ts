@@ -13,17 +13,13 @@ interface LoggedInBundle {
 @Injectable()
 export class UserService extends ApiConnector<IUser> {
   constructor(session: SessionService, client: HttpClient) {
-    super(session, client, '/users');
+    super(session, client, '/users', 8801);
   }
 
   public loginUser(username: string, password: string, remember: boolean): Observable<any> {
     const url = this.getFullUrl('/login');
     return this.client
-      .post<LoggedInBundle>(
-        url,
-        { name: username, password },
-        { headers: this.getHeaders(false) }
-      )
+      .post<LoggedInBundle>(url, { name: username, password }, { headers: this.getHeaders(false) })
       .pipe(
         tap((body: LoggedInBundle) => {
           this.sessionService.remember = remember;
@@ -35,10 +31,10 @@ export class UserService extends ApiConnector<IUser> {
 
   public logoutUser(): Observable<any> {
     const url = this.getFullUrl('/logout');
-    return this.client
-      .post(url, {}, { headers: this.getHeaders() })
-      .pipe(tap(() => {
+    return this.client.post(url, {}, { headers: this.getHeaders() }).pipe(
+      tap(() => {
         this.sessionService.clear();
-      }));
+      })
+    );
   }
 }

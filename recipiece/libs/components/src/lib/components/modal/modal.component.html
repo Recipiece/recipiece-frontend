@@ -1,0 +1,13 @@
+<div class="modal-backer" *ngIf="visible" (click)="onFocusLost()">
+  <div class="modal-wrapper" (click)="preventFocusLost($event)">
+    <div class="modal-title-wrapper">
+      <ng-content select="[modal-title]"></ng-content>
+    </div>
+    <div class="modal-body-wrapper">
+      <ng-content select="[modal-body]"></ng-content>
+    </div>
+    <div class="modal-actions-wrapper">
+      <ng-content select="[modal-actions]"></ng-content>
+    </div>
+  </div>
+</div>

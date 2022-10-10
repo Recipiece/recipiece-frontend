@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { StagedUsersService } from '@recipiece/api';
 import { take } from 'rxjs';
@@ -10,7 +10,6 @@ import { take } from 'rxjs';
   styleUrls: ['./create-account.component.scss'],
 })
 export class CreateAccountComponent {
-  public username: string = '';
   public email: string = '';
   public password: string = '';
   public confirmPassword: string = '';
@@ -18,7 +17,6 @@ export class CreateAccountComponent {
 
   public valid(): boolean {
     return (
-      this.username.length > 0 &&
       this.password.length > 0 &&
       this.email.length > 0 &&
       this.confirmPassword.length > 0
@@ -28,23 +26,22 @@ export class CreateAccountComponent {
   constructor(
     private stagedUserService: StagedUsersService,
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private toaster: HotToastService
   ) {}
 
   public stageUser() {
-    if (this.username.length < 6) {
-      this.toaster.error('Username must be at least 6 characters long');
-    } else if (this.password !== this.confirmPassword) {
+    if (this.password !== this.confirmPassword) {
       this.toaster.error('Passwords must match');
     } else if (this.password.length < 6) {
       this.toaster.error('Passwords must be at least 6 characters long');
     } else {
       this.stagedUserService
-        .stageUser(this.username, this.email, this.password)
+        .stageUser(this.email, this.password)
         .pipe(take(1))
         .subscribe({
           complete: () => {
-            this.router.navigate(['./verify']);
+            this.router.navigate(['./verify'], {relativeTo: this.activatedRoute});
           },
           error: () => {
             this.toaster.error('Username or email is already taken');

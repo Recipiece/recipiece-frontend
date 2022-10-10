@@ -1,0 +1,15 @@
+<div class="section-header">
+  <div *ngIf="numberOfSections > 1" class="section-details">
+    <ng-container *ngIf="hiddenSections[sectionIndex]">
+      <span class="material-icons action-icon" (click)="toggleSectionHidden()">visibility_off</span>
+    </ng-container>
+    <ng-container *ngIf="!hiddenSections[sectionIndex]">
+      <span class="material-icons action-icon" (click)="toggleSectionHidden()">visibility</span>
+    </ng-container>
+    <input [(ngModel)]="section.name" placeholder="Section Name" />
+    <span class="material-icons action-icon" (click)="removeSection()">delete</span>
+  </div>
+  <div class="list-action-container">
+    <ng-content></ng-content>
+  </div>
+</div>

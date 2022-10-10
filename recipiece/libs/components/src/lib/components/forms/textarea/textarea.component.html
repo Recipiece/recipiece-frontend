@@ -1,0 +1,12 @@
+<div class="textarea-container">
+  <textarea
+    [ngClass]="{'resizable': resizable, 'not-resizable': !resizable}"
+    [(ngModel)]="formValue"
+    [rows]="rows"
+    [cols]="cols"
+    [placeholder]="placeholder"
+    [maxlength]="maxChars"
+    name="{{name}}"
+  ></textarea>
+  <p *ngIf="maxChars">{{ (formValue ?? '').length }} / {{ maxChars }}</p>
+</div>

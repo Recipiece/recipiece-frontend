@@ -1,15 +1,15 @@
 @use '../colors.scss';
 
 .button {
-  &:not(.button-outline, .button-clear) {
+  &:not(.button-outline, .button-clear, .button-secondary) {
     border-color: colors.$app-primary !important;
     background-color: colors.$app-primary !important;
 
     &:not(:disabled) {
       &:focus,
       &:hover {
-        background-color: colors.$app-secondary !important;
-        border-color: colors.$app-secondary !important;
+        background-color: lighten(colors.$app-primary, 10) !important;
+        border-color: lighten(colors.$app-primary, 10) !important;
       }
     }
   }
@@ -36,5 +36,28 @@
         color: colors.$app-secondary !important;
       }
     }
+  }
+
+  &.button-secondary {
+    border-color: colors.$app-secondary !important;
+    color: colors.$font-light !important;
+    background-color: colors.$app-secondary !important;
+
+    &:not(:disabled) {
+      &:focus,
+      &:hover {
+        background-color: lighten(colors.$app-secondary, 5) !important;
+      }
+    }
+  }
+}
+
+.button-icon {
+  display: flex;
+  flex-direction: row;
+
+  span {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }

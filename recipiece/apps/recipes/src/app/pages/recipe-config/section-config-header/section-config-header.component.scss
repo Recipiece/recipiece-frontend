@@ -1,0 +1,21 @@
+.section-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .section-details {
+    flex-basis: 100%;
+    display: inline-flex;
+    flex-direction: row;
+  }
+
+  .action-icon {
+    cursor: pointer;
+    margin: 6px;
+  }
+
+  .list-action-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,24 @@
+@use '../config-common.scss';
+
+.ingredient-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 6px;
+
+  input {
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 0;
+  }
+
+  span {
+    padding: 4px;
+
+    &.material-icons {
+      height: 100%;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+}

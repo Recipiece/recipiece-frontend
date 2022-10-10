@@ -1,0 +1,53 @@
+@use 'libs/theme/src/lib/colors';
+
+.config-wrapper {
+  padding: 12px;
+
+  > div {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .or-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    hr {
+      flex-basis: 50%;
+      flex-shrink: 1;
+
+      border-color: colors.$app-secondary;
+      background-color: colors.$app-secondary;
+    }
+
+    p {
+      margin: 0;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+
+  .import-button-container {
+    display: flex;
+    flex-direction: row;
+
+    button {
+      margin-left: auto;
+      margin-right: auto;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        span {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+}

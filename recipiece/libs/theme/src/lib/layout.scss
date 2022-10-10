@@ -1,1 +1,16 @@
 $nav-bar-height: 54px;
+
+
+@mixin button-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+
+  ::ng-deep > button {
+    margin-left: 6px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

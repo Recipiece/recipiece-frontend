@@ -20,4 +20,15 @@
       padding: 4px;
     }
   }
+
+  .recipes-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 12px;
+
+    .single-card-wrapper {
+      margin: 4px;
+    }
+  }
 }

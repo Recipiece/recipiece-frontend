@@ -1,0 +1,58 @@
+<div class="config-wrapper">
+  <ng-container *ngFor="let section of recipe.sections; let sectionIndex = index">
+    <div class="section-container" [ngClass]="{'is-last': sectionIndex === recipe.sections.length - 1}">
+      <recipiece-section-config-header
+        [hiddenSections]="hiddenSections"
+        [numberOfSections]="recipe.sections.length"
+        [section]="section"
+        [sectionIndex]="sectionIndex"
+        (sectionRemoved)="removeSection(sectionIndex)"
+        (hideSectionToggled)="toggleSectionHidden(sectionIndex)"
+      >
+        <button
+          class="button button-outline button-icon"
+          (click)="addStep(sectionIndex)"
+          *ngIf="!hiddenSections[sectionIndex]"
+        >
+          <span class="material-icons">add</span>
+          Add Step
+        </button>
+      </recipiece-section-config-header>
+      <div class="section-steps" *ngIf="!hiddenSections[sectionIndex]">
+        <ng-container *ngFor="let step of section.steps; let stepIndex = index">
+          <textarea
+            [rows]="5"
+            name="section-{{ sectionIndex }}-step-{{ stepIndex }}"
+            [(ngModel)]="step.content"
+            [required]="true"
+            placeholder="What needs to be done?"
+          ></textarea>
+          <div class="time-entry">
+            <input
+              [ngModel]="getTimeDisplay(sectionIndex, stepIndex)?.time"
+              type="number"
+              placeholder="How long does this take?"
+              #timeNumber
+              (ngModelChange)="setTimeDisplay(sectionIndex, stepIndex, $event, unitSelect.value)"
+            />
+            <select
+              #unitSelect
+              [ngModel]="getTimeDisplay(sectionIndex, stepIndex)?.unit ?? 's'"
+              (ngModelChange)="setTimeDisplay(sectionIndex, stepIndex, +timeNumber.value, $event)"
+            >
+              <option value="s">seconds</option>
+              <option value="m">minutes</option>
+              <option value="h">hours</option>
+              <option value="d">days</option>
+            </select>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <div class="add-another-section-wrapper">
+    <hr />
+    <button class="button button-outline" (click)="addSection()">Add Section</button>
+    <hr />
+  </div>
+</div>

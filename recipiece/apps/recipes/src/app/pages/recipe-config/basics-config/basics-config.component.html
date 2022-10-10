@@ -1,0 +1,36 @@
+<div class="config-wrapper">
+  <div>
+    <input
+      name="recipe-name"
+      type="text"
+      [(ngModel)]="recipe.name"
+      placeholder="Give your recipe a name"
+      maxlength="100"
+    />
+  </div>
+  <div>
+    <textarea
+      [rows]="10"
+      name="recipe-description"
+      [(ngModel)]="recipe.description"
+      [required]="true"
+      placeholder="Give your recipe a brief description"
+      maxlength="1000"
+    ></textarea>
+  </div>
+
+  <div class="or-text">
+    <hr />
+    <p>or</p>
+    <hr />
+  </div>
+
+  <div class="import-button-container">
+    <button class="button button-secondary import-button" (click)="loadFromUrlPressed()">
+      <div>
+        Import from URL
+        <span class="material-icons action-icon" title="Import from URL">link</span>
+      </div>
+    </button>
+  </div>
+</div>

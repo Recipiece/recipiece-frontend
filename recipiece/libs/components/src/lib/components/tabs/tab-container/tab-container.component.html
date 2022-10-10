@@ -1,0 +1,15 @@
+<ng-container *ngIf="viewInit">
+  <div class="titles">
+    <div
+      class="tab-title"
+      *ngFor="let title of titles; let index = index"
+      (click)="handleTabSelected(index)"
+      [ngClass]="{ 'selected': index === selectedIndex }"
+    >
+      <recipiece-fancy-title>
+        <h4>{{ title }}</h4>
+      </recipiece-fancy-title>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</ng-container>

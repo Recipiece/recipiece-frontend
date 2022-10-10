@@ -1,0 +1,16 @@
+.recipe-ingredients {
+  padding: 4px;
+
+  .ingredient-entry {
+    margin-bottom: 2px;
+    cursor: pointer;
+
+    input {
+      margin-bottom: 0;
+    }
+
+    .striked-ing {
+      text-decoration: line-through;
+    }
+  }
+}

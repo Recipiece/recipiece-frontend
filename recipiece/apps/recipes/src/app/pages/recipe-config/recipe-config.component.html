@@ -1,1 +1,52 @@
-<p>recipe-config works!</p>
+<div class="recipe-config-component" *ngIf="!loading">
+  <div>
+    <recipiece-fancy-title>
+      <h3 class="title" *ngIf="editing">Edit {{ recipe.name }}</h3>
+      <h3 class="title" *ngIf="!editing">Create a Recipe</h3>
+    </recipiece-fancy-title>
+    <button class="button button-primary" (click)="recipeSaved()">Save</button>
+  </div>
+  <recipiece-tab-container>
+    <recipiece-tab title="Basics">
+      <recipiece-basics-config (loadedFromUrl)="loadFromUrlPressed()" [recipe]="recipe"></recipiece-basics-config>
+    </recipiece-tab>
+    <recipiece-tab title="Ingredients">
+      <recipiece-ingredients-config
+        (sectionAdded)="sectionAdded()"
+        (sectionRemoved)="sectionRemoved($event)"
+        (sectionHiddenToggled)="toggleSectionHidden($event)"
+        [hiddenSections]="hiddenSections"
+        [recipe]="recipe"
+      >
+      </recipiece-ingredients-config>
+    </recipiece-tab>
+    <recipiece-tab title="Steps">
+      <recipiece-steps-config
+        (sectionAdded)="sectionAdded()"
+        (sectionRemoved)="sectionRemoved($event)"
+        (sectionHiddenToggled)="toggleSectionHidden($event)"
+        [hiddenSections]="hiddenSections"
+        [recipe]="recipe"
+      ></recipiece-steps-config>
+    </recipiece-tab>
+  </recipiece-tab-container>
+</div>
+
+<recipiece-modal (focusLost)="modalFocusLost()" [visible]="showLinkModal">
+  <div modal-title>
+    <h3>Import a Recipe</h3>
+  </div>
+  <ng-container modal-body>
+    <div>
+      <p>
+        Got a favorite recipe from another place on the web? Paste a link to it below and we'll try our best to fill out
+        everything here for you.
+      </p>
+      <input placeholder="https://my.favorite.com/" name="url-import" [(ngModel)]="importUrl" />
+    </div>
+  </ng-container>
+  <ng-container modal-actions>
+    <button class="button button-secondary" (click)="modalFocusLost()">Cancel</button>
+    <button class="button" (click)="parseRecipeFromUrl()">Import</button>
+  </ng-container>
+</recipiece-modal>

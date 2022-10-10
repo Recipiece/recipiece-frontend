@@ -1,29 +1,18 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { IRecipe, IRecipeQuery } from '../../model';
-import { IPagedResponse } from '../../model/paged-result';
+import { Observable } from 'rxjs';
+import { IRecipe } from '../../model';
 import { ApiConnector } from '../api-connector';
 import { SessionService } from '../sessions';
 
 @Injectable()
 export class RecipesService extends ApiConnector<IRecipe> {
   constructor(sessionService: SessionService, client: HttpClient) {
-    super(sessionService, client, '/recipes');
+    super(sessionService, client, '/recipes', 8802);
   }
 
-  public listForUser(
-    query?: IRecipeQuery & { [key: string]: any }
-  ): Observable<IPagedResponse<IRecipe>> {
-    const url = this.getFullUrl(`/list/${this.sessionService.userId}`);
-    const options: any = { headers: this.getHeaders() };
-    if (!!query) {
-      options.params = new HttpParams({ fromObject: query });
-    }
-    return this.client
-      .get<IPagedResponse<IRecipe>>(url, options)
-      .pipe(map((response) => {
-        return response as unknown as IPagedResponse<IRecipe>;
-      }));
+  public parseFromUrl(recipeUrl: string): Observable<IRecipe> {
+    const url = this.getFullUrl('/parse/from-url');
+    return this.client.post<IRecipe>(url, {url: recipeUrl}, { headers: this.getHeaders() });
   }
 }

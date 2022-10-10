@@ -1,0 +1,19 @@
+<div class="recipe-ingredients">
+  <recipiece-fancy-title>
+    <h4 class="ingredients-title">Ingredients</h4>
+  </recipiece-fancy-title>
+  <ng-container *ngFor="let section of recipe.sections; let sectionIndex = index">
+    <ng-container *ngFor="let ingredient of section.ingredients; let ingredientIndex = index">
+      <div class="ingredient-entry" (click)="toggleIngredientChecked(sectionIndex, ingredientIndex)">
+        <input
+          type="checkbox"
+          [name]="'cb-' + getIngredientCheckKey(sectionIndex, ingredientIndex)"
+          [checked]="isIngredientChecked(sectionIndex, ingredientIndex)"
+        />
+        <span [ngClass]="{'striked-ing': isIngredientChecked(sectionIndex, ingredientIndex)}">
+          {{ ingredient.content }}
+        </span>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

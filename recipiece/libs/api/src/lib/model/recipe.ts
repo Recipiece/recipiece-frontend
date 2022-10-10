@@ -1,23 +1,18 @@
 import { IBaseUserOwnedModel } from "./base-model";
 
-export type RecipeStepLengthUnit = 'h' | 'm' | 's' | 'd';
-
-
-export interface IRecipeStepLength {
-  time: number;
-  unit: RecipeStepLengthUnit;
-}
-
 
 export interface IRecipeStep {
   content: string;
-  length: IRecipeStepLength;
+  time_ms?: number;
+  ordinal: number;
 }
 
 
 export interface IRecipeIngredient {
-  name: string;
-  amount: string;
+  ordinal: number;
+  content: string;
+  name?: string;
+  amount?: string;
   unit?: string;
   commonMatch?: string;
   converted?: string;
@@ -31,10 +26,10 @@ export interface IRecipeAdvancedOptions {
 
 
 export interface IRecipeSection {
-  id: string;
   name: string;
   steps: IRecipeStep[];
   ingredients: IRecipeIngredient[];
+  ordinal: number;
 }
 
 

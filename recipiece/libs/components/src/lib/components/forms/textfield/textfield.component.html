@@ -1,0 +1,10 @@
+<div class="textfield-container">
+  <input
+    type="text"
+    [(ngModel)]="formValue"
+    [maxlength]="maxChars"
+    [placeholder]="placeholder"
+    name="{{name}}"
+  />
+  <p *ngIf="maxChars">{{ (formValue ?? '').length }} / {{ maxChars }}</p>
+</div>

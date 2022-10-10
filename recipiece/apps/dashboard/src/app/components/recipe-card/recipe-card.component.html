@@ -1,0 +1,10 @@
+<div class="recipe-card">
+  <div class="card-internal">
+    <h4 class="recipe-title">{{ recipe.name }}</h4>
+    <span class="recipe-description">{{ recipe.description }}</span>
+  </div>
+  <div class="recipe-actions">
+    <a class="button icon-button" (click)="onView()" title="View"><span class="material-icons">visibility</span></a>
+    <a class="button icon-button button-secondary" (click)="onEdit()" title="Edit"><span class="material-icons">edit</span></a>
+  </div>
+</div>

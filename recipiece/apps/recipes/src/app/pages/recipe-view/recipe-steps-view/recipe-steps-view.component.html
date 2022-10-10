@@ -1,0 +1,17 @@
+<div class="steps-container">
+  <recipiece-fancy-title>
+    <h4>Steps</h4>
+  </recipiece-fancy-title>
+  <ng-container *ngFor="let section of recipe.sections">
+    <div class="section-wrapper">
+      <ng-container *ngIf="recipe.sections.length > 1">
+        <h5>{{ section.name }}</h5>
+      </ng-container>
+      <ng-container *ngFor="let step of section.steps; let stepIndex = index">
+        <div class="step-wrapper">
+          {{ stepIndex + 1 }}. {{ step.content }}
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

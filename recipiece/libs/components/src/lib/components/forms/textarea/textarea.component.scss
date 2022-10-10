@@ -1,0 +1,19 @@
+.textarea-container {
+  textarea {
+    margin-bottom: 0;
+    height: auto;
+
+    &.resizable {
+      resize: default;
+    }
+
+    &.not-resizable {
+      resize: none;
+    }
+  }
+
+  p {
+    font-size: 10px;
+    margin: 0;
+  }
+}

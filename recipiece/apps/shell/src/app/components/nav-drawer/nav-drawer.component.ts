@@ -25,7 +25,7 @@ export class NavDrawerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadingCookbooks = true;
-    this.loadBooksSubscription = this.coobookService.listForUser()
+    this.loadBooksSubscription = this.coobookService.list()
       .subscribe({
         next: (results) => {
           this.$cookbooks.next(results.data);

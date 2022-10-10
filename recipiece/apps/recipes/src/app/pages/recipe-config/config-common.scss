@@ -1,0 +1,59 @@
+@use 'libs/theme/src/lib/colors';
+
+.action-icon {
+  cursor: pointer;
+}
+
+.config-wrapper {
+  padding-top: 6px;
+}
+
+.section-container {
+  border-bottom: solid 1px colors.$app-secondary;
+
+  &.is-last {
+    border-bottom: none;
+  }
+
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.add-another-section-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  button {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin: 0;
+    flex-grow: 1;
+    border-color: colors.$app-secondary;
+  }
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 6px;
+
+  span {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 4px;
+  }
+
+  input {
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+
+  button {
+    flex-shrink: 1;
+    margin-left: 6px;
+    margin-bottom: 0;
+  }
+}
